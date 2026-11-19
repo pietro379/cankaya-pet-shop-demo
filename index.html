@@ -7,384 +7,113 @@
 <meta name="description" content="ÇANKAYA PET SHOP: Kırkkonaklar'da evcil hayvan ürünleri. Adrese servis. Şemsettin Günaltay Cd., Çankaya.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Hanken+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --mist: #E9F0EE;
-    --petrol: #12303A;
-    --mustard: #F4A6B8;
-    --coral: #E8553D;
-    --white: #FFFFFF;
-    --petrol-soft: #3E5A63;
-    --gutter: clamp(16px, 5vw, 56px);
-  }
-  *, *::before, *::after { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body {
-    margin: 0;
-    background: var(--mist);
-    color: var(--petrol);
-    font-family: "Hanken Grotesk", system-ui, sans-serif;
-    font-size: 1.0625rem;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
-  h1, h2, h3 {
-    font-family: "Bricolage Grotesque", "Hanken Grotesk", sans-serif;
-    line-height: 1.02;
-    margin: 0;
-    letter-spacing: -0.02em;
-  }
-  a { color: inherit; }
-  :focus-visible { outline: 3px solid var(--coral); outline-offset: 3px; border-radius: 6px; }
-  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 var(--gutter); }
-
-  /* Üst şerit */
-  .bar {
-    display: flex; justify-content: space-between; align-items: center; gap: 16px;
-    padding-block: 18px;
-    font-weight: 500;
-  }
-  .bar .brand { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 1.15rem; text-decoration: none; }
-  .bar a.call { text-decoration: none; font-weight: 700; padding: 10px 16px; border: 2px solid var(--petrol); border-radius: 999px; white-space: nowrap; }
-  .bar a.call:hover { background: var(--petrol); color: var(--white); }
-
-  /* Hero */
-  .hero { padding-bottom: clamp(40px, 7vw, 88px); }
-  .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(28px, 5vw, 64px); align-items: center; }
-  .hero-grid > * { min-width: 0; }
-  .hero h1 { font-size: clamp(2.6rem, 8vw, 6.2rem); font-weight: 800; overflow-wrap: break-word; }
-  .hero h1 span { display: block; }
-  .hero .lead { margin: 24px 0 0; max-width: 34ch; font-size: 1.25rem; color: var(--petrol-soft); }
-
-  /* Raf etiketi */
-  .label {
-    background: var(--mustard);
-    border-radius: 14px;
-    padding: clamp(20px, 3vw, 32px);
-    box-shadow: 0 0 0 3px var(--petrol), 8px 10px 0 3px var(--petrol);
-    transform: rotate(-1.6deg);
-    animation: drop .7s cubic-bezier(.2,.9,.3,1.2) both;
-    position: relative;
-  }
-  .label::before {
-    content: ""; position: absolute; top: 14px; right: 18px; width: 14px; height: 14px;
-    border-radius: 50%; background: var(--mist); box-shadow: inset 0 0 0 3px var(--petrol);
-  }
-  @keyframes drop { from { transform: translateY(-40px) rotate(4deg); opacity: 0; } to { transform: rotate(-1.6deg); opacity: 1; } }
-  .label h2 { font-size: clamp(1.6rem, 3.4vw, 2.1rem); font-weight: 800; max-width: 12ch; }
-  .label p { margin: 8px 0 18px; font-weight: 500; }
-  .chips { display: flex; flex-wrap: wrap; gap: 10px; padding: 0; margin: 0 0 22px; border: 0; }
-  .chips legend { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
-  .chips label {
-    cursor: pointer; font-weight: 700; padding: 10px 18px; border-radius: 999px;
-    border: 2.5px solid var(--petrol); background: transparent; user-select: none;
-    transition: background .15s, color .15s;
-  }
-  .chips input { position: absolute; opacity: 0; pointer-events: none; }
-  .chips input:checked + span { background: var(--petrol); color: var(--white); }
-  .chips label { padding: 0; }
-  .chips label span { display: block; padding: 10px 18px; border-radius: 999px; }
-  .chips input:focus-visible + span { outline: 3px solid var(--coral); outline-offset: 3px; }
-  .chips label:hover span { background: rgba(18,48,58,.1); }
-  .chips input:checked + span:hover { background: var(--petrol); }
-  .cta {
-    display: block; text-align: center; text-decoration: none; font-weight: 800; font-size: 1.1rem;
-    background: var(--petrol); color: var(--white); padding: 16px 20px; border-radius: 12px;
-  }
-  .cta:hover { background: #0b2028; }
-  .label .alt { margin: 14px 0 0; font-size: .95rem; }
-  .label .alt a { font-weight: 700; }
-
-  /* Bölümler */
-  section { padding: clamp(40px, 7vw, 88px) 0; }
-  .section-head { margin-bottom: 32px; }
-  .section-head h2 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; max-width: 15em; }
-
-  .reasons { background: var(--white); }
-  .reasons-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(24px, 4vw, 48px); }
-  .reason h3 { font-size: 1.5rem; font-weight: 800; margin-bottom: 10px; }
-  .reason p { margin: 0; color: var(--petrol-soft); }
-  .rating {
-    display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap;
-    margin-top: 44px; padding-top: 28px; border-top: 3px solid var(--petrol);
-  }
-  .rating strong { font-family: "Bricolage Grotesque", sans-serif; font-size: clamp(3rem, 8vw, 5rem); font-weight: 800; line-height: 1; }
-  .rating span { font-weight: 500; max-width: 36ch; }
-
-  .ways-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-  .way { padding: 26px; border-radius: 16px; background: var(--white); border: 3px solid var(--petrol); }
-  .way:nth-child(2) { background: var(--mustard); }
-  .way:nth-child(3) { background: var(--petrol); color: var(--white); border-color: var(--petrol); }
-  .way h3 { font-size: 1.45rem; font-weight: 800; margin-bottom: 8px; }
-  .way p { margin: 0; }
-
-  .visit { background: var(--petrol); color: var(--white); }
-  .visit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 64px); align-items: start; }
-  .visit h2 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; }
-  .visit address { font-style: normal; font-size: 1.25rem; margin: 20px 0; }
-  .visit dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 6px 18px; }
-  .visit dt { color: var(--mustard); font-weight: 700; }
-  .visit dd { margin: 0; }
-  .btns { display: flex; flex-wrap: wrap; gap: 12px; }
-  .btn { text-decoration: none; font-weight: 800; padding: 15px 22px; border-radius: 12px; }
-  .btn.primary { background: var(--mustard); color: var(--petrol); }
-  .btn.primary:hover { background: #f7bccb; }
-  .btn.ghost { border: 2.5px solid var(--white); color: var(--white); }
-  .btn.ghost:hover { background: var(--white); color: var(--petrol); }
-
-  /* Çizimler */
-  .pet-art { display: block; height: auto; overflow: visible; }
-  .label .cat {
-    position: absolute; right: clamp(20px, 6%, 48px); bottom: calc(100% - 3px);
-    width: clamp(96px, 14vw, 128px); z-index: 1; pointer-events: none;
-  }
-  .hero { position: relative; padding-top: calc(clamp(24px, 6vw, 72px) + 56px); }
-  .hero .wrap { position: relative; }
-  .paws { position: absolute; left: max(var(--gutter), calc((100% - 1120px) / 2 + var(--gutter))); bottom: 14px; display: flex; gap: 22px; opacity: .22; color: var(--petrol); pointer-events: none; }
-  .paws svg { width: 26px; height: 26px; fill: currentColor; }
-  .paws svg:nth-child(odd) { transform: rotate(-14deg) translateY(-10px); }
-  .paws svg:nth-child(even) { transform: rotate(12deg); }
-  .head-row { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; }
-  .head-row .section-head { margin-bottom: 32px; }
-  .head-row .dog { width: clamp(96px, 14vw, 132px); flex: none; margin-bottom: 24px; }
-  .pets { display: flex; align-items: flex-end; gap: 12px; margin-top: 28px; padding-bottom: 0; border-bottom: 4px solid var(--mustard); max-width: 320px; }
-  .pets .cat { --cat-body: var(--mustard); width: 104px; }
-  .pets .dog { width: 112px; }
-
-  footer { padding: 28px 0 40px; font-size: .9rem; color: var(--petrol-soft); }
-
-  @media (max-width: 860px) {
-    .hero-grid, .visit-grid { grid-template-columns: 1fr; }
-    .reasons-grid, .ways-grid { grid-template-columns: 1fr; }
-    .label { transform: rotate(-1deg); }
-    .paws { display: none; }
-    .hero { padding-top: 24px; }
-  }
-  /* Telefon: daha ferah boşluklar ve büyük dokunma alanları */
-  @media (max-width: 640px) {
-    :root { --gutter: 24px; }
-    body { font-size: 1.0625rem; line-height: 1.7; }
-    .bar { padding-block: 18px; }
-    .bar { gap: 12px; }
-    .bar .brand { font-size: 1rem; white-space: nowrap; }
-    .bar a.call { padding: 9px 12px; font-size: .9rem; }
-
-    .hero { padding-top: 40px; padding-bottom: 72px; }
-    .hero-grid { gap: 112px; }
-    .label .cat { width: 92px; }
-    .hero h1 { font-size: 3.1rem; line-height: 1; }
-    .hero .lead { margin-top: 24px; font-size: 1.15rem; line-height: 1.6; max-width: none; }
-
-    .label { padding: 28px 24px 26px; }
-    .label h2 { font-size: 1.9rem; }
-    .label p { margin: 10px 0 22px; }
-    .chips { gap: 12px; margin-bottom: 26px; }
-    .chips label span { padding: 13px 20px; font-size: 1.02rem; }
-    .cta { padding: 19px 20px; font-size: 1.15rem; }
-    .label .alt { margin-top: 18px; }
-
-    section { padding: 72px 0; }
-    .section-head { margin-bottom: 36px; }
-    .section-head h2 { font-size: 2.1rem; line-height: 1.08; }
-
-    .reasons-grid { gap: 0; }
-    .reason { padding: 26px 0; border-top: 2px solid rgba(18,48,58,.14); }
-    .reason:first-child { border-top: 0; padding-top: 0; }
-    .reason h3 { font-size: 1.45rem; margin-bottom: 8px; }
-    .rating { margin-top: 28px; padding-top: 32px; gap: 10px 16px; }
-
-    .head-row { align-items: flex-end; }
-    .head-row .dog { width: 96px; margin-bottom: 36px; }
-    .ways-grid { gap: 18px; }
-    .way { padding: 28px 24px; }
-    .way h3 { font-size: 1.5rem; margin-bottom: 10px; }
-
-    .visit-grid { gap: 40px; }
-    .visit address { font-size: 1.25rem; line-height: 1.7; margin: 24px 0; }
-    .visit dl { gap: 10px 20px; }
-    .btns { flex-direction: column; gap: 14px; }
-    .btn { text-align: center; padding: 18px 22px; font-size: 1.05rem; }
-    .pets { margin: 18px auto 0; justify-content: center; }
-
-    footer { padding: 28px 0 48px; line-height: 1.6; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    .label { animation: none; }
-  }
-</style>
-</head>
+:root{--plum:#2B1B3B;--pink:#F6A9C0;--blush:#FFF1F5;--sun:#FFCB4D;--g:clamp(20px,5vw,56px)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--blush);color:var(--plum);font-family:"DM Sans",system-ui,sans-serif;font-size:1.06rem;line-height:1.65}
+h1,h2,h3{font-family:"Baloo 2","DM Sans",sans-serif;font-weight:800;line-height:1.05;margin:0}
+a{color:inherit}.wrap{max-width:1040px;margin:0 auto;padding:0 var(--g)}
+:focus-visible{outline:3px solid var(--plum);outline-offset:3px;border-radius:8px}
+.top .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-block:16px}
+.brand{font-family:"Baloo 2",sans-serif;font-weight:800;font-size:1.25rem;text-decoration:none;white-space:nowrap}
+.call{background:var(--pink);font-weight:700;text-decoration:none;padding:10px 18px;border-radius:999px;border:2.5px solid var(--plum);white-space:nowrap}
+.hero{text-align:center;padding:clamp(28px,5vw,56px) 0 clamp(56px,8vw,96px);position:relative}
+.hero h1{font-size:clamp(3rem,10vw,6.4rem);max-width:10em;margin:0 auto}
+.lead{margin:20px auto 0;max-width:36ch;font-size:1.2rem;color:#5B476B}
+.searchwrap{position:relative;max-width:720px;margin:clamp(70px,10vw,96px) auto 0}
+.searchwrap .cat{position:absolute;left:22px;bottom:calc(100% - 10px);width:98px;pointer-events:none}
+.searchwrap .dog{position:absolute;right:22px;bottom:calc(100% - 10px);width:100px;pointer-events:none}
+.search{display:flex;gap:10px;background:#fff;border:3px solid var(--plum);border-radius:999px;padding:8px;box-shadow:0 8px 0 var(--plum)}
+.search input{flex:1;min-width:0;border:0;background:transparent;font:inherit;font-size:1.1rem;padding:12px 18px;color:var(--plum)}
+.search input::placeholder{color:#8C7A9B}.search input:focus{outline:none}
+.search:focus-within{box-shadow:0 8px 0 var(--pink),0 0 0 3px var(--pink)}
+.search button{border:0;background:var(--plum);color:#fff;font:inherit;font-weight:800;font-size:1.05rem;padding:14px 26px;border-radius:999px;cursor:pointer;white-space:nowrap}
+.search button:hover{background:#43295a}
+.sugg{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:34px 0 0;padding:0;list-style:none}
+.sugg button{font:inherit;font-weight:700;background:var(--sun);border:2.5px solid var(--plum);border-radius:999px;padding:8px 18px;cursor:pointer}
+.sugg button:hover{background:var(--pink)}
+.hero .alt{margin:20px 0 0;font-size:.98rem}.hero .alt a{font-weight:800}
+.paws{position:absolute;left:0;right:0;bottom:16px;display:flex;justify-content:center;gap:26px;opacity:.25;pointer-events:none}.paws svg{width:24px;height:24px;fill:var(--plum)}
+.paws svg:nth-child(odd){transform:rotate(-14deg) translateY(-8px)}.paws svg:nth-child(even){transform:rotate(12deg)}
+section{padding:clamp(48px,7vw,88px) 0}
+.sec-h{font-size:clamp(2.1rem,5.5vw,3.4rem);text-align:center;margin:0 auto 44px;max-width:14em}
+.bubbles{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.bubble{background:#fff;border:3px solid var(--plum);border-radius:30px;padding:26px 24px;position:relative}
+.bubble::after{content:"";position:absolute;left:34px;bottom:-17px;width:26px;height:26px;background:#fff;border-right:3px solid var(--plum);border-bottom:3px solid var(--plum);transform:rotate(45deg) skew(8deg,8deg)}
+.bubble h3{font-size:1.6rem;margin-bottom:6px}.bubble p{margin:0;color:#5B476B}
+.sticker{margin:56px auto 0;width:170px;height:170px;border-radius:50%;background:var(--sun);border:3px solid var(--plum);display:grid;place-items:center;text-align:center;transform:rotate(-8deg);box-shadow:5px 6px 0 var(--plum);line-height:1.1}
+.sticker b{font-family:"Baloo 2",sans-serif;font-size:3.6rem;display:block;line-height:1}.sticker span{font-weight:700;font-size:.92rem;padding:0 14px;display:block}
+.ways{background:#fff}
+.pills{display:grid;gap:16px;max-width:760px;margin:0 auto}
+.pill{display:grid;grid-template-columns:210px 1fr;gap:18px;align-items:center;border:3px solid var(--plum);border-radius:999px;padding:18px 34px}
+.pill:nth-child(1){background:var(--blush)}.pill:nth-child(2){background:var(--pink)}.pill:nth-child(3){background:var(--sun)}
+.pill h3{font-size:1.55rem}.pill p{margin:0}
+.visit{background:var(--plum);color:#fff;text-align:center}
+.visit h2{font-size:clamp(2.4rem,6vw,4rem)}
+.visit address{font-style:normal;font-size:1.3rem;margin:20px 0;line-height:1.7}
+.info{display:flex;justify-content:center;gap:10px 30px;flex-wrap:wrap;margin:0 0 30px;padding:0;list-style:none}.info b{color:var(--pink)}.info a{text-decoration:underline}
+.btns{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.btn{text-decoration:none;font-weight:800;padding:16px 26px;border-radius:999px}
+.btn.p{background:var(--pink);color:var(--plum)}.btn.p:hover{background:#ffc2d4}
+.btn.o{border:3px solid #fff;color:#fff}.btn.o:hover{background:#fff;color:var(--plum)}
+footer{background:var(--plum);color:#B9A8C9;padding:0 0 36px;font-size:.9rem;text-align:center}footer p{margin:0;max-width:60ch;margin-inline:auto;padding:0 var(--g)}
+@media(max-width:860px){.bubbles{grid-template-columns:1fr;gap:38px}.pill{grid-template-columns:1fr;border-radius:30px;gap:4px;padding:20px 24px}}
+@media(max-width:640px){.brand{font-size:1rem}.call{padding:9px 13px;font-size:.86rem}.top .wrap{gap:8px}.hero h1{font-size:3.1rem}.search{flex-direction:column;border-radius:30px;padding:10px}.search button{width:100%;padding:16px}.search input{padding:14px 16px;text-align:center}.searchwrap .cat{width:84px;left:14px}.searchwrap .dog{width:86px;right:14px}.btns{flex-direction:column}.btn{text-align:center}.paws{display:none}}
+</style></head>
 <body>
-
-<!-- Çizimler: kedi, köpek, pati -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-  <defs>
-    <symbol id="cat" viewBox="0 0 170 170">
-      <path d="M118 148 C165 150 168 96 140 92" fill="none" stroke="var(--cat-body,#12303A)" stroke-width="13" stroke-linecap="round"/>
-      <ellipse cx="80" cy="128" rx="42" ry="38" style="fill:var(--cat-body,#12303A)"/>
-      <ellipse cx="80" cy="136" rx="16" ry="22" fill="#fff"/>
-      <polygon points="46,54 48,12 78,40" style="fill:var(--cat-body,#12303A)"/>
-      <polygon points="114,54 112,12 82,40" style="fill:var(--cat-body,#12303A)"/>
-      <polygon points="53,45 54,26 69,40" fill="#E8553D"/>
-      <polygon points="107,45 106,26 91,40" fill="#E8553D"/>
-      <ellipse cx="80" cy="70" rx="40" ry="34" style="fill:var(--cat-body,#12303A)"/>
-      <ellipse cx="65" cy="67" rx="7.5" ry="8.5" fill="#F4A6B8"/>
-      <ellipse cx="95" cy="67" rx="7.5" ry="8.5" fill="#F4A6B8"/>
-      <ellipse cx="65" cy="67" rx="2.6" ry="6.5" fill="#12303A"/>
-      <ellipse cx="95" cy="67" rx="2.6" ry="6.5" fill="#12303A"/>
-      <polygon points="74,80 86,80 80,87" fill="#E8553D"/>
-      <path d="M80 87 v4 M80 91 q-5 5 -10 1 M80 91 q5 5 10 1" fill="none" stroke="#E9F0EE" stroke-width="2" stroke-linecap="round"/>
-      <path d="M52 82 L26 77 M52 89 L26 91 M108 82 L134 77 M108 89 L134 91" fill="none" stroke="#E9F0EE" stroke-width="2" stroke-linecap="round"/>
-    </symbol>
-    <symbol id="dog" viewBox="0 0 170 180">
-      <path d="M124 150 q30 -2 26 -34" fill="none" stroke="#12303A" stroke-width="17" stroke-linecap="round"/>
-      <path d="M124 150 q30 -2 26 -34" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round"/>
-      <ellipse cx="85" cy="138" rx="40" ry="38" fill="#fff" stroke="#12303A" stroke-width="5"/>
-      <rect x="60" y="148" width="18" height="28" rx="9" fill="#fff" stroke="#12303A" stroke-width="5"/>
-      <rect x="92" y="148" width="18" height="28" rx="9" fill="#fff" stroke="#12303A" stroke-width="5"/>
-      <ellipse cx="85" cy="72" rx="38" ry="34" fill="#fff" stroke="#12303A" stroke-width="5"/>
-      <path d="M52 50 C26 48 22 92 44 100 C55 92 57 70 52 50Z" fill="#E8553D" stroke="#12303A" stroke-width="5" stroke-linejoin="round"/>
-      <path d="M118 50 C144 48 148 92 126 100 C115 92 113 70 118 50Z" fill="#E8553D" stroke="#12303A" stroke-width="5" stroke-linejoin="round"/>
-      <ellipse cx="85" cy="86" rx="19" ry="14" fill="#E9F0EE"/>
-      <ellipse cx="85" cy="79" rx="7.5" ry="5.5" fill="#12303A"/>
-      <circle cx="69" cy="64" r="4.8" fill="#12303A"/>
-      <circle cx="101" cy="64" r="4.8" fill="#12303A"/>
-      <path d="M85 85 v6 M85 91 q-6 6 -12 0 M85 91 q6 6 12 0" fill="none" stroke="#12303A" stroke-width="3" stroke-linecap="round"/>
-      <path d="M80 96 q5 13 10 0z" fill="#E8553D" stroke="#12303A" stroke-width="2.5" stroke-linejoin="round"/>
-      <path d="M56 102 q29 14 58 0" fill="none" stroke="#F4A6B8" stroke-width="9" stroke-linecap="round"/>
-      <circle cx="85" cy="114" r="6.5" fill="#F4A6B8" stroke="#12303A" stroke-width="3"/>
-    </symbol>
-    <symbol id="paw" viewBox="0 0 40 40">
-      <ellipse cx="20" cy="27" rx="10" ry="8"/>
-      <circle cx="8" cy="16" r="4.5"/><circle cx="16" cy="9.5" r="4.5"/>
-      <circle cx="24" cy="9.5" r="4.5"/><circle cx="32" cy="16" r="4.5"/>
-    </symbol>
-  </defs>
-</svg>
-
-<header class="wrap bar">
-  <a class="brand" href="#top">ÇANKAYA PET SHOP</a>
-  <a class="call" href="tel:+905475709090">Ara: 0547 570 90 90</a>
-</header>
-
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+<symbol id="cat" viewBox="0 0 170 170">
+<path d="M118 148 C165 150 168 96 140 92" fill="none" stroke="#2B1B3B" stroke-width="13" stroke-linecap="round"/>
+<ellipse cx="80" cy="128" rx="42" ry="38" fill="#2B1B3B"/><ellipse cx="80" cy="136" rx="16" ry="22" fill="#FFFFFF"/>
+<polygon points="46,54 48,12 78,40" fill="#2B1B3B"/><polygon points="114,54 112,12 82,40" fill="#2B1B3B"/>
+<polygon points="53,45 54,26 69,40" fill="#F6A9C0"/><polygon points="107,45 106,26 91,40" fill="#F6A9C0"/>
+<ellipse cx="80" cy="70" rx="40" ry="34" fill="#2B1B3B"/>
+<ellipse cx="65" cy="67" rx="7.5" ry="8.5" fill="#FFCB4D"/><ellipse cx="95" cy="67" rx="7.5" ry="8.5" fill="#FFCB4D"/>
+<ellipse cx="65" cy="67" rx="2.6" ry="6.5" fill="#2B1B3B"/><ellipse cx="95" cy="67" rx="2.6" ry="6.5" fill="#2B1B3B"/>
+<polygon points="74,80 86,80 80,87" fill="#F6A9C0"/>
+<path d="M80 87 v4 M80 91 q-5 5 -10 1 M80 91 q5 5 10 1" fill="none" stroke="#FFF1F5" stroke-width="2" stroke-linecap="round"/>
+<path d="M52 82 L26 77 M52 89 L26 91 M108 82 L134 77 M108 89 L134 91" fill="none" stroke="#FFF1F5" stroke-width="2" stroke-linecap="round"/>
+</symbol>
+<symbol id="dog" viewBox="0 0 170 180">
+<path d="M124 150 q30 -2 26 -34" fill="none" stroke="#2B1B3B" stroke-width="17" stroke-linecap="round"/>
+<path d="M124 150 q30 -2 26 -34" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round"/>
+<ellipse cx="85" cy="138" rx="40" ry="38" fill="#FFFFFF" stroke="#2B1B3B" stroke-width="5"/>
+<rect x="60" y="148" width="18" height="28" rx="9" fill="#FFFFFF" stroke="#2B1B3B" stroke-width="5"/>
+<rect x="92" y="148" width="18" height="28" rx="9" fill="#FFFFFF" stroke="#2B1B3B" stroke-width="5"/>
+<ellipse cx="85" cy="72" rx="38" ry="34" fill="#FFFFFF" stroke="#2B1B3B" stroke-width="5"/>
+<path d="M52 50 C26 48 22 92 44 100 C55 92 57 70 52 50Z" fill="#F6A9C0" stroke="#2B1B3B" stroke-width="5" stroke-linejoin="round"/>
+<path d="M118 50 C144 48 148 92 126 100 C115 92 113 70 118 50Z" fill="#F6A9C0" stroke="#2B1B3B" stroke-width="5" stroke-linejoin="round"/>
+<ellipse cx="85" cy="86" rx="19" ry="14" fill="#FFF1F5"/><ellipse cx="85" cy="79" rx="7.5" ry="5.5" fill="#2B1B3B"/>
+<circle cx="69" cy="64" r="4.8" fill="#2B1B3B"/><circle cx="101" cy="64" r="4.8" fill="#2B1B3B"/>
+<path d="M85 85 v6 M85 91 q-6 6 -12 0 M85 91 q6 6 12 0" fill="none" stroke="#2B1B3B" stroke-width="3" stroke-linecap="round"/>
+<path d="M80 96 q5 13 10 0z" fill="#F6A9C0" stroke="#2B1B3B" stroke-width="2.5" stroke-linejoin="round"/>
+<path d="M56 102 q29 14 58 0" fill="none" stroke="#FFCB4D" stroke-width="9" stroke-linecap="round"/>
+<circle cx="85" cy="114" r="6.5" fill="#FFCB4D" stroke="#2B1B3B" stroke-width="3"/>
+</symbol>
+<symbol id="paw" viewBox="0 0 40 40"><ellipse cx="20" cy="27" rx="10" ry="8"/><circle cx="8" cy="16" r="4.5"/><circle cx="16" cy="9.5" r="4.5"/><circle cx="24" cy="9.5" r="4.5"/><circle cx="32" cy="16" r="4.5"/></symbol>
+</defs></svg>
+<header class="top"><div class="wrap"><a class="brand" href="#top">ÇANKAYA PET SHOP</a><a class="call" href="tel:+905475709090">Ara: 0547 570 90 90</a></div></header>
 <main id="top">
-  <section class="hero">
-    <div class="wrap hero-grid">
-      <div>
-        <h1><span>Aradığın ürün</span><span>burada.</span></h1>
-        <p class="lead">Kırkkonaklar'da evcil dostunun mama ve bakım ihtiyaçları. Dükkâna uğra ya da kapına getirelim.</p>
-      </div>
-
-      <form class="label" onsubmit="return false" aria-labelledby="label-title">
-        <svg class="pet-art cat" viewBox="0 0 170 170" aria-hidden="true"><use href="#cat"/></svg>
-        <h2 id="label-title">Evde kim var?</h2>
-        <p>Birini seç, bize WhatsApp'tan yaz.</p>
-        <fieldset class="chips">
-          <legend>Evcil hayvan türü</legend>
-          <label><input type="radio" name="pet" value="kedim için" checked><span>Kedi</span></label>
-          <label><input type="radio" name="pet" value="köpeğim için"><span>Köpek</span></label>
-          <label><input type="radio" name="pet" value="evcil hayvanım için"><span>Başka</span></label>
-        </fieldset>
-        <a id="wa" class="cta" href="#" target="_blank" rel="noopener">WhatsApp'tan sor</a>
-        <p class="alt">Yazmak istemezsen <a href="tel:+905475709090">hemen ara</a>.</p>
-      </form>
-    </div>
-    <div class="paws" aria-hidden="true">
-      <svg viewBox="0 0 40 40"><use href="#paw"/></svg><svg viewBox="0 0 40 40"><use href="#paw"/></svg><svg viewBox="0 0 40 40"><use href="#paw"/></svg><svg viewBox="0 0 40 40"><use href="#paw"/></svg><svg viewBox="0 0 40 40"><use href="#paw"/></svg>
-    </div>
-  </section>
-
-  <section class="reasons" aria-labelledby="why">
-    <div class="wrap">
-      <div class="section-head"><h2 id="why">Müşterilerimiz neyi sevdiğini yazmış.</h2></div>
-      <div class="reasons-grid">
-        <div class="reason">
-          <h3>Aradığını bulursun</h3>
-          <p>Müşteriler aradıkları ürünün dükkânda bulunduğunu yazmış.</p>
-        </div>
-        <div class="reason">
-          <h3>İlgili ekip</h3>
-          <p>Yorumlarda güler yüz ve ilgi sık geçiyor.</p>
-        </div>
-        <div class="reason">
-          <h3>Küçük hediyeler</h3>
-          <p>Bazı müşteriler alışverişte küçük hediyeler verildiğini belirtmiş.</p>
-        </div>
-      </div>
-      <div class="rating">
-        <strong>4,9</strong>
-        <span>Google'da 48 değerlendirmenin ortalaması.</span>
-      </div>
-    </div>
-  </section>
-
-  <section aria-labelledby="ways">
-    <div class="wrap">
-      <div class="head-row">
-        <div class="section-head"><h2 id="ways">Mamayı nasıl alırsın?</h2></div>
-        <svg class="pet-art dog" viewBox="0 0 170 180" aria-hidden="true"><use href="#dog"/></svg>
-      </div>
-      <div class="ways-grid">
-        <div class="way">
-          <h3>Dükkânda</h3>
-          <p>Gel, raflara bak, ihtiyacını birlikte seçelim.</p>
-        </div>
-        <div class="way">
-          <h3>Önce sor</h3>
-          <p>Aradığın ürün var mı diye yaz ya da ara, sonra uğra.</p>
-        </div>
-        <div class="way">
-          <h3>Adrese servis</h3>
-          <p>Siparişini yaz, kapına getirelim.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="visit" aria-labelledby="visit">
-    <div class="wrap visit-grid">
-      <div>
-        <h2 id="visit">Bizi bul.</h2>
-        <address>Kırkkonaklar<br>Şemsettin Günaltay Cd. 390. Sk. No:2 D:16<br>Çankaya, Ankara</address>
-        <dl>
-          <dt>Telefon</dt><dd><a href="tel:+905475709090">0547 570 90 90</a></dd>
-          <dt>WhatsApp</dt><dd><a href="https://wa.me/905475709090" target="_blank" rel="noopener">0547 570 90 90</a></dd>
-          <dt>Kapanış</dt><dd>21:00</dd>
-        </dl>
-      </div>
-      <div class="btns">
-        <a class="btn primary" href="https://www.google.com/maps/search/?api=1&query=%C3%87ANKAYA+PET+SHOP+%C5%9Eemsettin+G%C3%BCnaltay+Cd+390.+Sk+No%3A2+Ankara" target="_blank" rel="noopener">Yol tarifi al</a>
-        <a class="btn ghost" href="https://wa.me/905475709090" target="_blank" rel="noopener">WhatsApp'tan yaz</a>
-        <a class="btn ghost" href="tel:+905475709090">Ara</a>
-        <div class="pets" aria-hidden="true">
-          <svg class="pet-art cat" viewBox="0 0 170 170"><use href="#cat"/></svg>
-          <svg class="pet-art dog" viewBox="0 0 170 180"><use href="#dog"/></svg>
-        </div>
-      </div>
-    </div>
-  </section>
-</main>
-
-<footer class="wrap">
-  <p>Demo tasarım. Metinler ve iletişim bilgileri ÇANKAYA PET SHOP işletmesinin herkese açık Google Haritalar kaydına dayanır.</p>
-</footer>
-
-<script>
-  (function () {
-    var phone = "905475709090";
-    var link = document.getElementById("wa");
-    function update() {
-      var sel = document.querySelector('input[name="pet"]:checked');
-      var who = sel ? sel.value : "evcil hayvanım için";
-      var text = "Merhaba, " + who + " mama ve ürünler hakkında bilgi almak istiyorum.";
-      link.href = "https://wa.me/" + phone + "?text=" + encodeURIComponent(text);
-    }
-    document.querySelectorAll('input[name="pet"]').forEach(function (el) {
-      el.addEventListener("change", update);
-    });
-    update();
-  })();
-</script>
-</body>
-</html>
+<section class="hero" style="padding-block:clamp(28px,5vw,56px) clamp(56px,8vw,96px)"><div class="wrap">
+<h1>Aradığın ürün burada.</h1><p class="lead">Kırkkonaklar'da evcil dostunun mama ve bakım ihtiyaçları. Dükkâna uğra ya da kapına getirelim.</p>
+<div class="searchwrap"><svg class="cat" viewBox="0 0 170 170" aria-hidden="true"><use href="#cat"/></svg><svg class="dog" viewBox="0 0 170 180" aria-hidden="true"><use href="#dog"/></svg>
+<form class="search" id="f" onsubmit="return false" role="search"><label for="q" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Aradığın ürün</label>
+<input id="q" type="text" placeholder="Ne arıyorsun? Örn. kedi maması" autocomplete="off"><button type="submit" id="go">Var mı, sor</button></form></div>
+<ul class="sugg"><li><button type="button" data-q="mama">Mama</button></li><li><button type="button" data-q="oyuncak">Oyuncak</button></li><li><button type="button" data-q="aksesuar">Aksesuar</button></li></ul>
+<p class="alt">Yazmak istemezsen <a href="tel:+905475709090">hemen ara</a>.</p></div>
+<div class="paws" aria-hidden="true"><svg viewBox="0 0 40 40"><use href="#paw"/></svg><svg viewBox="0 0 40 40"><use href="#paw"/></svg><svg viewBox="0 0 40 40"><use href="#paw"/></svg><svg viewBox="0 0 40 40"><use href="#paw"/></svg><svg viewBox="0 0 40 40"><use href="#paw"/></svg></div></section>
+<section aria-labelledby="why"><div class="wrap"><h2 class="sec-h" id="why">Müşterilerimiz neyi sevdiğini yazmış.</h2>
+<div class="bubbles"><div class="bubble"><h3>Aradığını bulursun</h3><p>Müşteriler aradıkları ürünün dükkânda bulunduğunu yazmış.</p></div><div class="bubble"><h3>İlgili ekip</h3><p>Yorumlarda güler yüz ve ilgi sık geçiyor.</p></div><div class="bubble"><h3>Küçük hediyeler</h3><p>Bazı müşteriler alışverişte küçük hediyeler verildiğini belirtmiş.</p></div></div>
+<div class="sticker"><div><b>4,9</b><span>Google'da 48 değerlendirme</span></div></div></div></section>
+<section class="ways" aria-labelledby="ways"><div class="wrap"><h2 class="sec-h" id="ways">Mamayı nasıl alırsın?</h2><div class="pills"><div class="pill"><h3>Dükkânda</h3><p>Gel, raflara bak, ihtiyacını birlikte seçelim.</p></div><div class="pill"><h3>Önce sor</h3><p>Aradığın ürün var mı diye yaz ya da ara, sonra uğra.</p></div><div class="pill"><h3>Adrese servis</h3><p>Siparişini yaz, kapına getirelim.</p></div></div></div></section>
+<section class="visit" aria-labelledby="visit"><div class="wrap"><h2 id="visit">Bizi bul.</h2>
+<address>Kırkkonaklar · Şemsettin Günaltay Cd. 390. Sk. No:2 D:16 · Çankaya, Ankara</address>
+<ul class="info"><li><b>Telefon</b> <a href="tel:+905475709090">0547 570 90 90</a></li><li><b>WhatsApp</b> <a href="https://wa.me/905475709090" target="_blank" rel="noopener">0547 570 90 90</a></li><li><b>Kapanış</b> 21:00</li></ul>
+<div class="btns"><a class="btn p" href="https://www.google.com/maps/search/?api=1&query=%C3%87ANKAYA%20PET%20SHOP%20%C5%9Eemsettin%20G%C3%BCnaltay%20Cd%20390.%20Sk%20No%3A2%20Ankara" target="_blank" rel="noopener">Yol tarifi al</a><a class="btn o" href="https://wa.me/905475709090" target="_blank" rel="noopener">WhatsApp'tan yaz</a><a class="btn o" href="tel:+905475709090">Ara</a></div></div></section></main>
+<footer><p>Demo tasarım. Metinler ve iletişim bilgileri ÇANKAYA PET SHOP işletmesinin herkese açık Google Haritalar kaydına dayanır.</p></footer>
+<script>(function(){var n="905475709090",q=document.getElementById("q");
+function go(){var v=q.value.trim();var t=v?("Merhaba, "+v+" var mı?"):"Merhaba, bir ürün hakkında bilgi almak istiyorum.";window.open("https://wa.me/"+n+"?text="+encodeURIComponent(t),"_blank","noopener")}
+document.getElementById("f").addEventListener("submit",go);
+document.querySelectorAll(".sugg button").forEach(function(b){b.addEventListener("click",function(){q.value=b.dataset.q;q.focus()})});})();</script>
+</body></html>
